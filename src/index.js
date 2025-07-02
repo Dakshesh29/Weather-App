@@ -1,10 +1,19 @@
+import * as dom from "./modules/dom.js";
 import { getWeather } from "./modules/weather.js";
-import { displayWeatherToDOM } from "./modules/dom.js";
 import "./styles.css";
 
-async function init() {
-  const data = await getWeather("Agra");
-  displayWeatherToDOM(data);
-}
+window.addEventListener("DOMContentLoaded", async () => {
+  const data = await getWeather("Gwalior");
+  if (data) dom.displayWeatherToDOM(data);
+});
 
-init();
+const form = document.getElementById("searchForm");
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const city = document.getElementById("cityInput").value.trim();
+  if (!city) return;
+
+  const data = await getWeather(city);
+  if (data) dom.displayWeatherToDOM(data);
+});
