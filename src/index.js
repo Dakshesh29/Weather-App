@@ -1,6 +1,10 @@
-import { hello, renderUI } from "./modules/dom.js";
-import { fetchWeather, hello2 } from "./modules/weather.js";
+import { getWeather } from "./modules/weather.js";
+import { displayWeatherToDOM } from "./modules/dom.js";
 import "./styles.css";
 
-hello();
-hello2();
+async function init() {
+  const data = await getWeather("Agra");
+  displayWeatherToDOM(data);
+}
+
+init();
