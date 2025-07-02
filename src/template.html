@@ -3,7 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Weather App</title>
   </head>
-  <body></body>
+  <body>
+    <div class="app">
+      <h1>🌦 Weather App</h1>
+      <form id="searchForm">
+        <input
+          type="text"
+          id="cityInput"
+          placeholder="Enter a city..."
+          required
+        />
+        <button type="submit">Search</button>
+      </form>
+      <div id="weatherDisplay" class="forecast"></div>
+    </div>
+  </body>
 </html>
